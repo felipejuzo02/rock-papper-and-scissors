@@ -2,21 +2,48 @@
   <div class="header">
     <img alt="Vue logo" src="../assets/logo.svg" />
 
-    <div class="scoreboard">
+    <div class="header__scoreboard">
       <small>SCORE</small>
-      <p>0</p>
+      <p class="header__points">{{ points }}</p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      points: 15
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 @import '../scss/_variables.scss';
 
 .header {
-  border: 2px solid red;
+  border: 2px solid $header-outline;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
-  max-width: 480px;
+  align-items: stretch;
+  width: 480px;
   padding: 12px 18px;
+  color: $dark-text;
+
+  &__scoreboard {
+    background: $ligth-color;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__points {
+    font-size: 48px;
+  }
 }
 </style>
