@@ -1,6 +1,6 @@
 <template>
   <div class="rules">
-    <button class="rules__button">RULES</button>
+    <button class="rules__button" @click="$emit('openRules')">RULES</button>
   </div>
 </template>
 

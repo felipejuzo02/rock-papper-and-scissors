@@ -3,7 +3,10 @@
   <div class="home__container">
     <header-score />
   </div>
-    <rules class="home__rules" />
+  <rules @openRules="openRulesModal" class="home__rules" />
+  <modal-rules ref="rulesModal" />
+
+<div :class="openedModalClasses"/>
 </div>
 </template>
 
@@ -11,12 +14,32 @@
 import Card from './components/Card.vue'
 import HeaderScore from './components/Header.vue'
 import Rules from './components/Rules.vue'
+import ModalRules from './components/ModalRules.vue'
 
 export default {
   components: {
     Card,
     HeaderScore,
-    Rules
+    Rules,
+    ModalRules
+  },
+
+  data() {
+    return {
+      openedModal: false
+    }
+  },
+
+  computed: {
+    openedModalClasses() {
+      return false && 'home__opened-modal'
+    }
+  },
+
+  methods: {
+    openRulesModal(){
+      this.$refs.rulesModal.openModal()
+    }
   }
 }
 </script>
@@ -47,6 +70,14 @@ export default {
     position: absolute;
     bottom: 16px;
     right: 16px;
+  }
+
+  &__opened-modal {
+    position: absolute;
+    height: 100vh;
+    z-index: 100;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .6);
   }
 }
 </style>
