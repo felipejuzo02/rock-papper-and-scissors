@@ -1,5 +1,5 @@
 <template>
-  <div v-if="modelModal" class="modal-rules">
+  <div v-if="modelModal" class="modal-rules" v-on="$listenner" v-bind="$attrs">
     <div class="modal-rules__header">
       <p>RULES</p>
       <button class="modal-rules__button" @click="closeModal">X</button>
@@ -12,7 +12,7 @@
 export default {
   data(){
     return {
-      modelModal: true
+      modelModal: false
     }
   },
 
@@ -23,6 +23,7 @@ export default {
 
     closeModal() {
       this.modelModal = false
+      this.$emit('closeModal')
     }
   }
 }

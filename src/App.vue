@@ -3,10 +3,14 @@
   <div class="home__container">
     <header-score />
   </div>
-  <rules @openRules="openRulesModal" class="home__rules" />
-  <modal-rules ref="rulesModal" />
 
-<div :class="openedModalClasses"/>
+  <div class="home__content">
+    <card :card-type="'scissors'" />
+  </div>
+
+  <rules @openRules="openRulesModal" class="home__rules" />
+  <modal-rules ref="rulesModal" @closeModal="closeRulesModal" />
+  <div :class="openedModalClasses" />
 </div>
 </template>
 
@@ -32,13 +36,18 @@ export default {
 
   computed: {
     openedModalClasses() {
-      return false && 'home__opened-modal'
+      return this.openedModal && 'home__opened-modal'
     }
   },
 
   methods: {
-    openRulesModal(){
+    openRulesModal() {
       this.$refs.rulesModal.openModal()
+      this.openedModal = true
+    },
+
+    closeRulesModal() {
+      this.openedModal = false
     }
   }
 }
@@ -64,6 +73,13 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     margin: 26px 0;
+  }
+
+  &__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
   }
 
   &__rules {
