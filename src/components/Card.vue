@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="propertiesCard[cardType].classes" @click="$emit('clickCard')">
+  <div class="card" :class="propertiesCard[cardType].classes" @click="$emit('clickCard', cardType)">
     <img class="card__image" :src="propertiesCard[cardType].image" :alt="propertiesCard[cardType].name">
   </div>
 </template>
@@ -46,6 +46,7 @@ export default {
   height: 190px;
   border-radius: 50%;
   box-shadow: inset 0 -9px 2px rgba($color: #000000, $alpha: .3);
+  position: relative;
 
   &--bg-rock {
     background: $rock;

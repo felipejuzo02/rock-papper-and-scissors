@@ -1,11 +1,11 @@
 <template>
 <div class="home">
   <div class="home__container">
-    <header-score />
+    <header-score :points="points" />
   </div>
 
   <div class="home__content">
-    <card :card-type="'scissors'" />
+    <game @addPoint="addPoint" @removePoint="removePoint" />
   </div>
 
   <rules @openRules="openRulesModal" class="home__rules" />
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import Card from './components/Card.vue'
+import Game from './components/Game.vue'
 import HeaderScore from './components/Header.vue'
 import Rules from './components/Rules.vue'
 import ModalRules from './components/ModalRules.vue'
 
 export default {
   components: {
-    Card,
+    Game,
     HeaderScore,
     Rules,
     ModalRules
@@ -30,24 +30,33 @@ export default {
 
   data() {
     return {
-      openedModal: false
+      openedModal: false,
+      points: 0
     }
   },
 
   computed: {
-    openedModalClasses() {
+    openedModalClasses () {
       return this.openedModal && 'home__opened-modal'
     }
   },
 
   methods: {
-    openRulesModal() {
+    openRulesModal () {
       this.$refs.rulesModal.openModal()
       this.openedModal = true
     },
 
-    closeRulesModal() {
+    closeRulesModal () {
       this.openedModal = false
+    },
+
+    addPoint () {
+      this.points++
+    },
+
+    removePoint () {
+      this.points--
     }
   }
 }

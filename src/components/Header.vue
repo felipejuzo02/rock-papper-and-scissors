@@ -11,9 +11,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      points: 15
+  props: {
+    points: {
+      type: Number,
+      default: 0
     }
   }
 }
