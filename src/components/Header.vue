@@ -36,7 +36,7 @@ export default {
   &__scoreboard {
     background: $ligth-color;
     text-align: center;
-    padding: 12px 24px;
+    padding: 12px 32px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;

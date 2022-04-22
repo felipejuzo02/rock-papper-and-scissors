@@ -63,6 +63,7 @@ export default {
   &__image {
     background: $ligth-color;
     width: 62px;
+    height: 62px;
     padding: 38px;
     border-radius: 50%;
     position: absolute;

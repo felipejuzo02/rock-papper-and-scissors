@@ -1,6 +1,7 @@
 <template>
   <div>
     <div v-if="!showResult" class="game">
+      <img class="game__bg-triangle" src="../assets/bg-triangle.svg" alt="Background Triangle">
       <card :card-type="'paper'" @clickCard="selectedCard" />
       <card :card-type="'scissors'" @clickCard="selectedCard" />
       <card :card-type="'rock'" @clickCard="selectedCard" />
@@ -58,7 +59,7 @@ export default {
 
     randomValue() {
       const randomNumber = Math.floor(Math.random() * (3 - 0)) + 0
-      const options = ['rock', 'paper', 'scissor']
+      const options = ['rock', 'paper', 'scissors']
 
       this.randomChoice = options[randomNumber]
     },
@@ -106,6 +107,10 @@ export default {
 .game {
   display: flex;
   justify-content: space-around;
+
+  &__bg-triangle {
+    position: absolute;
+  }
 
   &__result {
     display: flex;
