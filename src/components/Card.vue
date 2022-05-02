@@ -72,6 +72,12 @@ export default {
     transform: translate(-50%, -50%);
     box-shadow: inset 0 9px 2px rgba($color: #000000, $alpha: .2);
   }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.5s;
+  }
 }
 
 </style>

@@ -2,9 +2,9 @@
   <div>
     <div v-if="!showResult" class="game">
       <img class="game__bg-triangle" src="../assets/bg-triangle.svg" alt="Background Triangle">
-      <card :card-type="'paper'" @clickCard="selectedCard" />
-      <card :card-type="'scissors'" @clickCard="selectedCard" />
-      <card :card-type="'rock'" @clickCard="selectedCard" />
+      <card class="game__rock" :card-type="'rock'" @clickCard="selectedCard" />
+      <card class="game__scissors" :card-type="'scissors'" @clickCard="selectedCard" />
+      <card class="game__paper" :card-type="'paper'" @clickCard="selectedCard" />
     </div>
 
     <div v-else>
@@ -14,9 +14,9 @@
           <card :card-type="lastClick" />
         </div>
 
-         <div>
+         <div class="game__play-again">
            <p class="game__result-text">{{ result }}</p>
-           <button @click="playAgain">PLAY AGAIN</button>
+           <button class="game__play-again-button" @click="playAgain">PLAY AGAIN</button>
          </div>
 
         <div>
@@ -107,9 +107,44 @@ export default {
 .game {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 400px;
+  margin-top: 120px;
 
   &__bg-triangle {
     position: absolute;
+    width: 340px;
+    height: 300px;
+  }
+
+  &__scissors {
+    align-self: flex-end;
+  }
+
+  &__rock {
+    margin-right: -60px;
+  }
+
+  &__paper {
+    margin-left: -60px;
+  }
+
+  &__paper,
+  &__rock {
+    align-self: flex-start;
+  }
+
+  &__play-again-button {
+    background: $ligth-color;
+    border: none;
+    border-radius: 8px;
+    color: $dark-text;
+    font-weight: 700;
+    padding: 12px 42px;
+  }
+
+  &__play-again {
+    margin: 0 36px;
   }
 
   &__result {
