@@ -139,8 +139,14 @@ export default {
     border: none;
     border-radius: 8px;
     color: $dark-text;
+    cursor: pointer;
     font-weight: 700;
     padding: 12px 42px;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: all 0.5s;
+    }
   }
 
   &__play-again {
@@ -163,6 +169,15 @@ export default {
     margin-bottom: 24px;
     font-size: 22px;
     color: $ligth-color;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .game {
+    &__bg-triangle {
+    width: 320px;
+    height: 240px;
+  }
   }
 }
 </style>

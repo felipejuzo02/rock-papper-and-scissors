@@ -80,4 +80,15 @@ export default {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 150px;
+    height: 150px;
+
+    &__image {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
 </style>

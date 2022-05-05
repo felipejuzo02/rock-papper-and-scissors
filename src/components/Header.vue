@@ -47,4 +47,12 @@ export default {
     font-size: 48px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .header {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
 </style>

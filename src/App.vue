@@ -105,4 +105,16 @@ export default {
     background-color: rgba(0, 0, 0, .6);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .home {
+    &__container {
+      width: 98%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 26px 0;
+    }
+  }
+}
 </style>
